@@ -1,0 +1,17 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env", {
+        "corejs": 3,
+        "targets": {
+          "browsers": "> 0.25%",
+          "ie":"9"
+        },
+        "useBuiltIns": "usage"
+      }
+    ]
+  ],
+  "plugins": [
+    ["@babel/plugin-transform-runtime"]
+  ]
+}
