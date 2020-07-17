@@ -27,9 +27,9 @@ const plugins = [
     }]
   }),
 
-  new purifyCssWebpack({
-    paths: glob.sync(path.join(__dirname, "../src/pages/*/*.html"))
-  }),
+  // new purifyCssWebpack({
+  //   paths: glob.sync(path.join(__dirname, "../src/pages/*/*.html"))
+  // }),
 
   new ProgressBarPlugin(),
 
@@ -53,7 +53,8 @@ const plugins = [
 function getHtmlWebpackPluginConfigs () {
   const res = [];
   for (let [entryName] of Object.entries(entry)) {
-    const htmlFilePath = `${appPath}/pages/${entryName}/index.html`;
+    const htmlFilePath = `${appPath}/pages/${entryName}/page.ejs`;
+    console.log(htmlFilePath)
     if (!fs.existsSync(htmlFilePath)) {
       throw new Error(`file: ${htmlFilePath} not exist`);
     }
@@ -62,7 +63,12 @@ function getHtmlWebpackPluginConfigs () {
       filename: `pages/${entryName}.html`,
       hash: true,
       chunks: ["vendor", "common", entryName],
-      minify: false
+      minify:  {
+        collapseWhitespace : true,
+        removeComments : true,
+        minifyJS : true,
+        minifyCSS : true
+      },
       // : {
       //   removeComments: true, //移除HTML中的注释
       //   collapseWhitespace: true, //折叠空白区域 也就是压缩代码
@@ -73,4 +79,10 @@ function getHtmlWebpackPluginConfigs () {
   }
   return res;
 }
-module.exports = [...plugins, ...getHtmlWebpackPluginConfigs()];
+module.exports = [
+  // new webpack.ProvidePlugin({
+  //   _: "underscore"
+  // }),
+  ...plugins,
+  ...getHtmlWebpackPluginConfigs()
+];

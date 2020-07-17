@@ -1,0 +1,14 @@
+@import 'bootstrap/scss/_functions';
+@import 'bootstrap/scss/_variables';
+@import 'bootstrap/scss/_mixins';
+
+@import 'bootstrap/scss/_buttons';  //  按钮
+@import 'bootstrap/scss/_button-group';  //  按钮组
+
+@import 'bootstrap/scss/_grid';  //  引入栅格
+@import 'bootstrap/scss/_reboot';  //  引入样式重置
+
+$size: 24px;
+body{
+  font-size: $size;
+}

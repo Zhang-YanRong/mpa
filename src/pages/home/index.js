@@ -1,3 +1,5 @@
-// import '@/common/js/test.js.js'
-import '@/assets/js/common.js'
-import '@/assets/css/index.css'
+import ejsHtml from './page.ejs'
+import header from './header.ejs'
+
+console.log(ejsHtml)
+console.log(header)

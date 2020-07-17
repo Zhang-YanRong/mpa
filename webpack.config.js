@@ -17,7 +17,7 @@ const config = {
   },
   devServer,
   resolve: {
-    extensions: [".js", ".css", ".less", ".json"],
+    extensions: [".js", ".css", ".less", ".json", ".ejs"],
     alias: {
       "@": appPath,
     }
