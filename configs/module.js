@@ -33,16 +33,15 @@ const modules = {
   rules: [
     {
       test: /\.ejs$/,
-      use: [
-        {
-          loader: 'ejs-loader',
-          options: {
-            variable: 'data',
-            interpolate : '\\{\\{(.+?)\\}\\}',
-            evaluate : '\\[\\[(.+?)\\]\\]'
-          }
-        }
-      ],
+      use: {
+        loader: "ejs-compiled-loader",
+        options: {
+          htmlmin: true,
+          htmlminOptions: {
+            removeComments: true,
+          },
+        },
+      },
     },
     // { // 这个要先与babel-loader之前定义
     //   enforce: "pre",
